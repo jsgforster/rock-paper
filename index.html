@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const comp = computerPlay()
+        const player = computerPlay()
+        console.log(comp);
+        console.log(player);
+        function computerPlay() {
+            let outcome = (Math.floor(Math.random() * 10) % 3) + 1
+            console.log(outcome)
+            switch (outcome) {
+                case 1:
+                    return 'rock';
+                    break;
+                case 2:
+                    return 'paper';
+                    break;
+                case 3:
+                    return 'scissors'
+            }
+        }
+
+        function playRound(playerSelection, computerSelection){
+            if (playerSelection.toLowerCase() == computerSelection) {
+                return 'Tis a Draw!'
+            } else if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'scissors'){
+                return 'Player winssss'
+            } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'rock'){
+                return 'Player winssss'
+            } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'paper'){
+                return 'Player winssss'
+            } else {
+                return 'Computer wins'
+            }
+
+        }
+        console.log(playRound(player,comp))
+        
+    </script>
+    
+</body>
+</html>
