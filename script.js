@@ -68,3 +68,19 @@ function game(){
     }
     return 'done'
 }
+
+
+
+function typeWrite(txt){
+    var i = 0;
+    console.log(txt.length)
+    typeWriter();
+    function typeWriter() {
+    if (i < txt.length) {
+        document.getElementById("demo").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+    }
+    }
+  document.getElementById("but").remove();
+}

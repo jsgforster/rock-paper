@@ -16,17 +16,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 8px;
+    margin: 5px;
 }
 
 
 .play {
     display: flex;
     background-color: blanchedalmond;
-    gap: 20px;
+    gap: 8px;
     border: 5px solid lightseagreen;
     border-radius: 20px;
-    padding: 120px;
+    padding: 80px;
     flex-direction: column;
 }
 
@@ -39,17 +39,25 @@ body {
 
 .scores {
     display: flex;
-    gap: 12px;
-    padding: 20px;
+    gap: 5px;
+    padding: 10px;
 }
 
+.scores {
+    display: flex;
+    justify-content: center;
+}
 
-button {
-    background-color: rgb(80, 202, 239);
-    color: antiquewhite;
+#but {
+    padding: 8px;
+    font-size: 24px;
     border: 3px solid rgb(64, 177, 211);
     border-radius: 5px;
+    background-color: rgb(80, 202, 239);
+    color: aliceblue;
+    width: 300px;
 }
+
 
 .option > img {
     max-width: 100px;
