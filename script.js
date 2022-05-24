@@ -2,27 +2,29 @@ function computerPlay() {
     let outcome = (Math.floor(Math.random() * 10) % 3) + 1
     switch (outcome) {
         case 1:
-            return 'rock';
+            return 'Rock';
             break;
         case 2:
-            return 'paper';
+            return 'Paper';
             break;
         case 3:
-            return 'scissors'
+            return 'Scissors'
     }
 }
 
-function playRound(playerSelection, computerSelection){
-    if (playerSelection.toLowerCase() == computerSelection) {
-        return 'Tis a Draw!'
-    } else if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'scissors'){
-        return 'Player wins'
-    } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'rock'){
-        return 'Player wins'
-    } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'paper'){
-        return 'Player wins'
+function playRound(e){
+    computerSelection = computerPlay();
+    playerSelection = this.id
+    if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
+        typeWrite(`Player has chosen: ${this.id}`,`Computer has chosen: ${computerSelection}`,`Tis a draw!`);       
+    } else if (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'scissors'){
+        typeWrite(`Player has chosen: ${this.id}`,`Computer has chosen: ${computerSelection}`,`Player Wins!`)
+    } else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'rock'){
+        typeWrite(`Player has chosen: ${this.id}`,`Computer has chosen: ${computerSelection}`,`Player Wins!`)
+    } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'paper'){
+        typeWrite(`Player has chosen: ${this.id}`,`Computer has chosen: ${computerSelection}`,`Player Wins!`)
     } else {
-        return 'Computer wins'
+        typeWrite(`Player has chosen: ${this.id}`,`Computer has chosen: ${computerSelection}`,`Computer Wins!`)
     }
 
 }
@@ -70,17 +72,42 @@ function game(){
 }
 
 
+let play = document.getElementById('but');
+play.addEventListener('click', function(){
+    typeWrite('Choose your weapon player!','',' ');document.getElementById("but").remove();
+});
 
-function typeWrite(txt){
-    var i = 0;
-    console.log(txt.length)
+
+
+
+
+function typeWrite(txt1,txt2,outcome){
+    const options = document.querySelectorAll('.option')
+    options.forEach(option => option.removeEventListener('click',playRound));
+    document.getElementById("text1").innerHTML = '';
+    document.getElementById("text2").innerHTML = '';
+    document.getElementById("outcome").innerHTML = '';
+    let i = 0;
+    let j = 0;
+    let k = 0;
     typeWriter();
     function typeWriter() {
-    if (i < txt.length) {
-        document.getElementById("demo").innerHTML += txt.charAt(i);
+    if (i < txt1.length) {
+        document.getElementById("text1").innerHTML += txt1.charAt(i);
         i++;
         setTimeout(typeWriter, 50);
+    }else if(txt2 && j < txt2.length){
+        document.getElementById("text2").innerHTML += txt2.charAt(j);
+        j++;
+        setTimeout(typeWriter, 50);
+    }else if(outcome && k < outcome.length){
+        document.getElementById("outcome").innerHTML += outcome.charAt(k);
+        k++;
+        setTimeout(typeWriter, 50);
+        console.log('run')
+        options.forEach(option => option.addEventListener('click',playRound));
     }
     }
-  document.getElementById("but").remove();
+    
+    
 }

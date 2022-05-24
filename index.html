@@ -15,25 +15,39 @@
     </div>
     <div class="play">
         <div class="buttons">
-            <div class="rock option">
+            <div id='Rock' class="rock option">
                 <img src="rock.png" alt="rock">
                 <button class="bubbly-button" type="button" id="rock">Rock</button>
             </div>
-            <div class="paper option">
+            <div id="Paper" class="paper option">
                 <img src="paper.png" alt="paper">
                 <button class="bubbly-button" id="paper">Paper</button>
             </div>
-            <div class="scissors option">
+            <div id="Scissors" class="scissors option">
                 <img src="scissors.png" alt="scissors">
                 <button class="bubbly-button" id="scissors">Scissors</button>
             </div>
         </div>
-        <div class="scores">
-            <button onclick="typeWrite('Choose your weapon player!')" id="but">Play!</button>
-            <div id="demo"></div>
+        <div class="textSection">
+            <button id="but">Play!</button>
+            <div id="text1"></div>
+            <div id="text2"></div>
+            <div id="outcome"></div>
         </div>
-            <p>Computer:</p>
-            <p>Player:</p>
+
+
+        <div class="scores">
+            <h3>scores</h3>
+            <div class="actualScores">
+                <div class="computer">
+                    <p>Computer: <span>0</span></p>
+                </div>
+                <div class="player">
+                    <p>Player: <span>0</span></p>
+                </div>
+            </div>
+
+        </div>
     </div>
     <div class="footer">
         <p>Copyright meeee..</p>
